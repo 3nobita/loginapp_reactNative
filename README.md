@@ -1,15 +1,25 @@
-**# loginapp_reactNative
-steps# loginapp_reactNative
+# loginapp_reactNative
 
 ## Steps
 
-1. Open VS Code.
-2. Paste this command to clone the repository:
-
+1. Open VS Code and clone the repository:
    ```bash
    git clone https://github.com/3nobita/loginapp_reactNative.git
 
-1.open vs code peast this command 
-copy
-git clone https://github.com/3nobita/loginapp_reactNative.git
-**
+2. Navigate to the loginapp_reactNative folder and install dependencies:
+   ```bash
+   npm i
+   
+3. Move to the backend folder:
+   ```bash
+     cd backend
+
+4.  In the backend folder, install backend dependencies:
+    ```bash
+    npm install
+5. Start the backend server:
+   ```bash
+   npm start
+6. Open a new terminal and start the frontend (in the main project folder):
+   ```bash
+   npx expo start      
