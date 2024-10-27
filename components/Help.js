@@ -4,16 +4,15 @@ import axios from 'axios';
 
 const Help = () => {
   const [userId, setUserId] = useState('');
-  const [oldPassword, setOldPassword] = useState(''); // Placeholder for old password
+  const [oldPassword, setOldPassword] = useState(''); 
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [idModalVisible, setIdModalVisible] = useState(false);
   const [passwordModalVisible, setPasswordModalVisible] = useState(false);
 
   const handleIdSubmit = () => {
-    // Simulate fetching the old password
     if (userId) {
-      setOldPassword('currentOldPassword'); // Simulated old password
+      setOldPassword('currentOldPassword'); 
       setIdModalVisible(false);
       setPasswordModalVisible(true);
     } else {
@@ -95,7 +94,7 @@ const Help = () => {
               style={styles.input}
               placeholder="Old Password"
               value={oldPassword}
-              editable={false} // Prevent user from editing
+              editable={false} 
             />
             <TextInput
               style={styles.input}
