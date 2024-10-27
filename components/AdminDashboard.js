@@ -7,7 +7,7 @@ const AdminDashboard = () => {
     const [password, setPassword] = useState('');
     const [users, setUsers] = useState([]);
     const [error, setError] = useState(null);
-    const [confirmDeleteId, setConfirmDeleteId] = useState(null); // New state for confirmation
+    const [confirmDeleteId, setConfirmDeleteId] = useState(null); 
 
     const fetchUsers = async () => {
         try {
@@ -29,7 +29,7 @@ const AdminDashboard = () => {
 
         try {
             await axios.post('http://localhost:5000/api/users', userData);
-            fetchUsers(); // Refresh the user list
+            fetchUsers(); 
             setUsername('');
             setPassword('');
             Alert.alert('Success', 'User created successfully.');
@@ -43,29 +43,29 @@ const AdminDashboard = () => {
     };
 
     const handleDelete = (userId) => {
-        setConfirmDeleteId(userId); // Set the user ID to confirm deletion
+        setConfirmDeleteId(userId); 
     };
 
     const confirmDeleteUser = async () => {
         if (confirmDeleteId) {
             try {
                 const response = await axios.delete(`http://localhost:5000/api/users/${confirmDeleteId}`);
-                console.log('Delete Response:', response); // Log the response for debugging
+                console.log('Delete Response:', response); 
                 if (response.status === 200) {
-                    fetchUsers(); // Refresh the user list
+                    fetchUsers(); 
                     Alert.alert('Success', 'User deleted successfully.');
                 }
             } catch (error) {
                 console.error('Error deleting user:', error);
                 Alert.alert('Error', 'Failed to delete user.');
             } finally {
-                setConfirmDeleteId(null); // Reset the confirmation ID
+                setConfirmDeleteId(null); 
             }
         }
     };
 
     const cancelDelete = () => {
-        setConfirmDeleteId(null); // Reset the confirmation ID
+        setConfirmDeleteId(null); 
     };
 
     useEffect(() => {
