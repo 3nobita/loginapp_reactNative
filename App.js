@@ -9,7 +9,7 @@ import UserDashboard from './components/UserDashboard';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
-  const [users, setUsers] = useState([]); // Initialize users
+  const [users, setUsers] = useState([]); 
 
   return (
     <NavigationContainer>
