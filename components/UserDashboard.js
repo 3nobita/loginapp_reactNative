@@ -2,15 +2,12 @@ import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
 const UserDashboard = ({ route, navigation }) => {
-  const { userName } = route.params; // Retrieve the userName from route parameters
+  const { userName } = route.params; 
 
   const handleLogout = () => {
-    // Implement logout logic here (e.g., clearing tokens, user state, etc.)
-    
-    // Reset navigation stack
     navigation.reset({
       index: 0,
-      routes: [{ name: 'UserLogin' }], // Navigate back to login screen
+      routes: [{ name: 'UserLogin' }],
     });
   };
 
@@ -29,17 +26,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-    backgroundColor: 'rgba(0, 0, 0, 0.8)', // Match the background style
+    backgroundColor: 'rgba(0, 0, 0, 0.8)', 
   },
   title: {
     fontSize: 24,
     marginBottom: 20,
-    color: '#fff', // Make title text white for better visibility
+    color: '#fff',
   },
   content: {
     fontSize: 16,
     marginBottom: 10,
-    color: '#fff', // Make content text white for better visibility
+    color: '#fff', 
   },
 });
 
