@@ -1,14 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const User = require('./models/User'); // User model
+const User = require('./models/User');
 const { body, validationResult } = require('express-validator');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:8081', // Update this to match your frontend
+  origin: 'http://localhost:8081',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true,
 }));
@@ -47,18 +47,16 @@ app.post('/api/users', [
   const { username, password } = req.body;
 
   try {
-    // Check if the username already exists
     const existingUser = await User.findOne({ username });
     if (existingUser) {
       return res.status(400).json({ message: 'Username already exists' });
     }
 
     // Create a new user
-    const newUser = new User({ username, password }); // Ensure you only set username and password
+    const newUser = new User({ username, password }); 
     await newUser.save();
     res.status(201).json(newUser);
   } catch (error) {
-    // Handle potential errors
     res.status(400).json({ message: error.message });
   }
 });
@@ -72,8 +70,6 @@ app.post('/api/users/login', async (req, res) => {
         if (!user) {
             return res.status(400).json({ message: 'User not found' });
         }
-
-        // Check password (assuming plaintext for this example)
         if (password !== user.password) {
             return res.status(400).json({ message: 'Incorrect password' });
         }
@@ -103,7 +99,7 @@ app.put('/api/users/update-password', [
           return res.status(404).json({ message: 'User not found.' });
       }
 
-      user.password = newPassword; // Update password (consider hashing it before saving)
+      user.password = newPassword; 
       await user.save();
 
       res.status(200).json({ message: 'Password updated successfully.' });
