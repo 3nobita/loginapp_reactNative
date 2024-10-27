@@ -22,4 +22,7 @@
    npm start
 6. Open a new terminal and start the frontend (in the main project folder):
    ```bash
-   npx expo start      
+   npx expo start
+7. Access Admin Code:
+   ```bash
+   9671         
